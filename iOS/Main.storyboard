@@ -195,8 +195,8 @@
                                 <rect key="frame" x="48" y="100" width="114" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="5913" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" editable="NO" selectable="NO">
-                                <rect key="frame" x="48" y="233" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" id="5913" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" editable="NO" selectable="NO" scrollEnabled="NO" bounces="NO" bouncesZoom="NO">
+                                <rect key="frame" x="48" y="233" width="295" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -229,7 +229,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ProfileImageView" destination="5912" id="name-outlet-5912"/>
+                        <outlet property="AvatarImageView" destination="5912" id="name-outlet-5912"/>
+                        <outlet property="NameLabel" destination="5915" id="name-outlet-5915"/>
+                        <outlet property="UsernameLabel" destination="5914" id="name-outlet-5914"/>
+                        <outlet property="BioTextView" destination="5913" id="name-outlet-5913"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5491" userLabel="First Responder" sceneMemberID="firstResponder"/>

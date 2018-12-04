@@ -8,7 +8,7 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace isarithmmobile.iOS.ViewControllers
+namespace Isarithm.Mobile.iOS.ViewControllers
 {
     [Register ("LoginViewController")]
     partial class LoginViewController
@@ -28,14 +28,6 @@ namespace isarithmmobile.iOS.ViewControllers
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField UsernameTextField { get; set; }
-
-        [Action ("LoginButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void LoginButton_TouchUpInside (UIKit.UIButton sender);
-
-        [Action ("UIBarButtonItem3618_Activated:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void UIBarButtonItem3618_Activated (UIKit.UIBarButtonItem sender);
 
         void ReleaseDesignerOutlets ()
         {

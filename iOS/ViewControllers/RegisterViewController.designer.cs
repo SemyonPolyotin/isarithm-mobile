@@ -8,7 +8,7 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace isarithmmobile.iOS.ViewControllers
+namespace Isarithm.Mobile.iOS.ViewControllers
 {
     [Register ("RegisterViewController")]
     partial class RegisterViewController
@@ -28,10 +28,6 @@ namespace isarithmmobile.iOS.ViewControllers
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField UsernameTextField { get; set; }
-
-        [Action ("RegisterButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RegisterButton_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {

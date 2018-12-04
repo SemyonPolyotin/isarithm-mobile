@@ -8,7 +8,7 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace isarithmmobile.iOS.ViewControllers
+namespace Isarithm.Mobile.iOS.ViewControllers
 {
     [Register ("EditProfileViewController")]
     partial class EditProfileViewController

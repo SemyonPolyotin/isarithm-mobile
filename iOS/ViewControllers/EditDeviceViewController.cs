@@ -1,7 +1,7 @@
 using System;
 using UIKit;
 
-namespace isarithmmobile.iOS.ViewControllers
+namespace Isarithm.Mobile.iOS.ViewControllers
 {
 	public partial class EditDeviceViewController : UIViewController
 	{

@@ -2,7 +2,7 @@ using System;
 using Foundation;
 using UIKit;
 
-namespace isarithmmobile.iOS.ViewControllers
+namespace Isarithm.Mobile.iOS.ViewControllers
 {
 	public partial class DeviceViewController : UIViewController
 	{
