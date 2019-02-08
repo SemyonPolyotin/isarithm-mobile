@@ -76,7 +76,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>iOS Team Provisioning Profile: com.isarithm.Isarithm</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: com.isarithm.isarithm</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
@@ -101,16 +101,24 @@
     <ImageAsset Include="Assets.xcassets\About.imageset\tab_about%402x.png" />
     <ImageAsset Include="Assets.xcassets\About.imageset\tab_about%403x.png" />
     <ImageAsset Include="Assets.xcassets\Profile.imageset\robot%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Cog.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cog.imageset\cog.png" />
+    <ImageAsset Include="Assets.xcassets\Cog.imageset\cog%40x2.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Assets.xcassets\Profile.imageset\" />
     <Folder Include="Assets.xcassets\About.imageset\" />
-    <Folder Include="ViewControllers\" />
+    <Folder Include="Storyboards\" />
+    <Folder Include="Sources\" />
+    <Folder Include="Sources\ViewControllers\" />
+    <Folder Include="Sources\Services\" />
+    <Folder Include="Assets.xcassets\Cog.imageset\" />
+    <Folder Include="Sources\Model\" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Storyboards\Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -118,31 +126,56 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewControllers\LoginViewController.cs" />
-    <Compile Include="ViewControllers\LoginViewController.designer.cs">
-      <DependentUpon>LoginViewController.cs</DependentUpon>
+    <Compile Include="Sources\AppDelegate.cs" />
+    <Compile Include="Sources\Main.cs" />
+    <Compile Include="Sources\TVS\DevicesTvs.cs" />
+    <Compile Include="Sources\TVS\FeedTvs.cs" />
+    <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.cs" />
+    <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.designer.cs">
+      <DependentUpon>AddDeviceViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\RegisterViewController.cs" />
-    <Compile Include="ViewControllers\RegisterViewController.designer.cs">
-      <DependentUpon>RegisterViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\Devices\DevicesViewController.cs" />
+    <Compile Include="Sources\ViewControllers\Devices\DevicesViewController.designer.cs">
+      <DependentUpon>DevicesViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\ProfileViewController.cs" />
-    <Compile Include="ViewControllers\ProfileViewController.designer.cs">
-      <DependentUpon>ProfileViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\Devices\DeviceTableViewCell.cs" />
+    <Compile Include="Sources\ViewControllers\Devices\DeviceTableViewCell.designer.cs">
+      <DependentUpon>DeviceTableViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\EditProfileViewController.cs" />
-    <Compile Include="ViewControllers\EditProfileViewController.designer.cs">
-      <DependentUpon>EditProfileViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\Device\DeviceViewController.cs" />
+    <Compile Include="Sources\ViewControllers\Device\DeviceViewController.designer.cs">
+      <DependentUpon>../../ViewControllers/DeviceViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\DeviceViewController.cs" />
-    <Compile Include="ViewControllers\DeviceViewController.designer.cs">
-      <DependentUpon>DeviceViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\EditDevice\EditDeviceViewController.cs" />
+    <Compile Include="Sources\ViewControllers\EditDevice\EditDeviceViewController.designer.cs">
+      <DependentUpon>../../ViewControllers/EditDeviceViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\EditDeviceViewController.cs" />
-    <Compile Include="ViewControllers\EditDeviceViewController.designer.cs">
-      <DependentUpon>EditDeviceViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\EditProfile\EditProfileViewController.cs" />
+    <Compile Include="Sources\ViewControllers\EditProfile\EditProfileViewController.designer.cs">
+      <DependentUpon>../../ViewControllers/EditProfileViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\Feed\FeedTableViewCell.cs" />
+    <Compile Include="Sources\ViewControllers\Feed\FeedTableViewCell.designer.cs">
+      <DependentUpon>FeedTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\Feed\FeedViewController.cs" />
+    <Compile Include="Sources\ViewControllers\Feed\FeedViewController.designer.cs">
+      <DependentUpon>FeedViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\Login\LoginViewController.cs" />
+    <Compile Include="Sources\ViewControllers\Login\LoginViewController.designer.cs">
+      <DependentUpon>../../ViewControllers/LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\Profile\ProfileViewController.cs" />
+    <Compile Include="Sources\ViewControllers\Profile\ProfileViewController.designer.cs">
+      <DependentUpon>../../ViewControllers/ProfileViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Services\BluetoothService.cs" />
+    <Compile Include="Sources\Model\Device.cs" />
+    <Compile Include="Sources\Model\FeedItem.cs" />
+    <Compile Include="Sources\ViewControllers\Register\RegisterViewController.cs" />
+    <Compile Include="Sources\ViewControllers\Register\RegisterViewController.designer.cs">
+      <DependentUpon>../../ViewControllers/RegisterViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +183,10 @@
       <Project>{59cbd5a8-d4b6-4154-875b-13a69aa39d9a}</Project>
       <Name>isarithm-mobile.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cog.png" />
+    <BundleResource Include="Resources\cog%40x2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />

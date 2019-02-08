@@ -16,7 +16,7 @@ namespace Isarithm.Common.Utility
 				Content = iContent
 			};
 
-			HttpResponseMessage response = new HttpResponseMessage();
+			var response = new HttpResponseMessage();
 			try
 			{
 				response = await client.SendAsync(request);

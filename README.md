@@ -1,2 +1,7 @@
-# isarithm-mobile
-Mobile C# iOS and Android applications for Isarithm
+# Isarithm Mobile
+Mobile C# iOS and Android applications for Isarithm.
+
+## Setup
+```bash
+    $ ?
+```

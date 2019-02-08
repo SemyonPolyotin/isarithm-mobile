@@ -2,9 +2,9 @@ namespace Isarithm.Common.Domain
 {
 	public class Device
 	{
-		public string id { get; set; }
-		public string model { get; set; }
-		public long regDate { get; set; }
-		public User owner { get; set; }
+		public string Id { get; set; }
+		public string Model { get; set; }
+		public long RegDate { get; set; }
+		public User Owner { get; set; }
 	}
 }
