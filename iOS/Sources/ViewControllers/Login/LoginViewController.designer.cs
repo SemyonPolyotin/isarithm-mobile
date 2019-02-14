@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Login
 {
@@ -27,6 +27,10 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Login
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView SignInGoogleView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField UsernameTextField { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -44,6 +48,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Login
             if (RegisterBarButtonItem != null) {
                 RegisterBarButtonItem.Dispose ();
                 RegisterBarButtonItem = null;
+            }
+
+            if (SignInGoogleView != null) {
+                SignInGoogleView.Dispose ();
+                SignInGoogleView = null;
             }
 
             if (UsernameTextField != null) {

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Foundation;
-using Isarithm.Mobile.iOS.Sources.TVS;
 using UIKit;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices

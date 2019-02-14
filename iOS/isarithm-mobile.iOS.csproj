@@ -36,7 +36,8 @@
     <CodesignKey>iPhone Developer: poletinm@yandex.ru (W3MSZ4PJ4B)</CodesignKey>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchFloat32>true</MtouchFloat32>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
@@ -79,17 +80,35 @@
     <CodesignProvision>iOS Team Provisioning Profile: com.isarithm.isarithm</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Acr.Core, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Acr.Core.3.0.1\lib\xamarinios10\Acr.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Plugin.BluetoothLE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Plugin.BluetoothLE.6.2.3\lib\xamarinios10\Plugin.BluetoothLE.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Reactive, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263">
+      <HintPath>..\packages\System.Reactive.4.0.0\lib\netstandard2.0\System.Reactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Calabash">
       <HintPath>..\packages\Xamarin.TestCloud.Agent.0.21.7\lib\Xamarin.iOS\Calabash.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.BLE.Abstractions">
+      <HintPath>..\packages\Plugin.BLE.1.3.0\lib\Xamarin.iOS10\Plugin.BLE.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.BLE">
+      <HintPath>..\packages\Plugin.BLE.1.3.0\lib\Xamarin.iOS10\Plugin.BLE.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +123,9 @@
     <ImageAsset Include="Assets.xcassets\Cog.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Cog.imageset\cog.png" />
     <ImageAsset Include="Assets.xcassets\Cog.imageset\cog%40x2.png" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\google.jpg" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -115,6 +137,8 @@
     <Folder Include="Sources\Services\" />
     <Folder Include="Assets.xcassets\Cog.imageset\" />
     <Folder Include="Sources\Model\" />
+    <Folder Include="Sources\ViewControllers\AddActivities\" />
+    <Folder Include="Sources\ViewControllers\DiscoverDevice\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
@@ -128,12 +152,11 @@
   <ItemGroup>
     <Compile Include="Sources\AppDelegate.cs" />
     <Compile Include="Sources\Main.cs" />
-    <Compile Include="Sources\TVS\DevicesTvs.cs" />
-    <Compile Include="Sources\TVS\FeedTvs.cs" />
     <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.cs" />
     <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.designer.cs">
       <DependentUpon>AddDeviceViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\Devices\DevicesTvs.cs" />
     <Compile Include="Sources\ViewControllers\Devices\DevicesViewController.cs" />
     <Compile Include="Sources\ViewControllers\Devices\DevicesViewController.designer.cs">
       <DependentUpon>DevicesViewController.cs</DependentUpon>
@@ -146,6 +169,7 @@
     <Compile Include="Sources\ViewControllers\Device\DeviceViewController.designer.cs">
       <DependentUpon>../../ViewControllers/DeviceViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\DiscoverDevice\DiscoverDevicesTvs.cs" />
     <Compile Include="Sources\ViewControllers\EditDevice\EditDeviceViewController.cs" />
     <Compile Include="Sources\ViewControllers\EditDevice\EditDeviceViewController.designer.cs">
       <DependentUpon>../../ViewControllers/EditDeviceViewController.cs</DependentUpon>
@@ -158,6 +182,7 @@
     <Compile Include="Sources\ViewControllers\Feed\FeedTableViewCell.designer.cs">
       <DependentUpon>FeedTableViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\Feed\FeedTvs.cs" />
     <Compile Include="Sources\ViewControllers\Feed\FeedViewController.cs" />
     <Compile Include="Sources\ViewControllers\Feed\FeedViewController.designer.cs">
       <DependentUpon>FeedViewController.cs</DependentUpon>
@@ -177,6 +202,31 @@
     <Compile Include="Sources\ViewControllers\Register\RegisterViewController.designer.cs">
       <DependentUpon>../../ViewControllers/RegisterViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\Profile\ProfileActivityTableViewCell.cs" />
+    <Compile Include="Sources\ViewControllers\Profile\ProfileActivityTableViewCell.designer.cs">
+      <DependentUpon>ProfileActivityTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\AddActivities\AddActivitiesTableViewCell.cs" />
+    <Compile Include="Sources\ViewControllers\AddActivities\AddActivitiesTableViewCell.designer.cs">
+      <DependentUpon>AddActivitiesTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\AddActivities\AddActivitiesViewController.cs" />
+    <Compile Include="Sources\ViewControllers\AddActivities\AddActivitiesViewController.designer.cs">
+      <DependentUpon>AddActivitiesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\DiscoverDevice\DiscoverDeviceViewController.cs" />
+    <Compile Include="Sources\ViewControllers\DiscoverDevice\DiscoverDeviceViewController.designer.cs">
+      <DependentUpon>DiscoverDeviceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\DiscoverDevice\DiscoveredDeviceTableViewCell.cs" />
+    <Compile Include="Sources\ViewControllers\DiscoverDevice\DisvoverDeviceTableViewCell.designer.cs">
+      <DependentUpon>DiscoveredDeviceTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\Device\AvailiableActivityTableViewCell.cs" />
+    <Compile Include="Sources\ViewControllers\Device\AvailiableActivityTableViewCell.designer.cs">
+      <DependentUpon>AvailiableActivityTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\DiscoverDevice\DiscoveredDevice.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\isarithm-mobile.Common.csproj">
@@ -187,6 +237,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\cog.png" />
     <BundleResource Include="Resources\cog%40x2.png" />
+    <BundleResource Include="Resources\google.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />

@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
 {
@@ -24,6 +24,10 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel NameLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView ProfileActivityTableView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -48,6 +52,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
             if (NameLabel != null) {
                 NameLabel.Dispose ();
                 NameLabel = null;
+            }
+
+            if (ProfileActivityTableView != null) {
+                ProfileActivityTableView.Dispose ();
+                ProfileActivityTableView = null;
             }
 
             if (UsernameLabel != null) {

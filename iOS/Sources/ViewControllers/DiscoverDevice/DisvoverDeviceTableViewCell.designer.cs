@@ -8,20 +8,20 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace Isarithm.Mobile.iOS.Sources.ViewControllers.AddDevice
+namespace Isarithm.Mobile.iOS.Sources.ViewControllers.DiscoverDevice
 {
-    [Register ("AddDeviceViewController")]
-    partial class AddDeviceViewController
+    [Register ("DiscoveredDeviceTableViewCell")]
+    partial class DiscoveredDeviceTableViewCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIBarButtonItem SaveBarButtonItem { get; set; }
+        UIKit.UILabel DeviceModelLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (SaveBarButtonItem != null) {
-                SaveBarButtonItem.Dispose ();
-                SaveBarButtonItem = null;
+            if (DeviceModelLabel != null) {
+                DeviceModelLabel.Dispose ();
+                DeviceModelLabel = null;
             }
         }
     }

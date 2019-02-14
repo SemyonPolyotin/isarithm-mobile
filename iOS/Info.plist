@@ -59,5 +59,14 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>YOUR CUSTOM MESSAGE</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
+	</array>
 </dict>
 </plist>

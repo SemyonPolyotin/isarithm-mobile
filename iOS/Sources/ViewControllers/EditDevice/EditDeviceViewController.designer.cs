@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.EditDevice
 {
@@ -19,7 +19,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.EditDevice
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIPickerView ModelPickerView { get; set; }
+        UIKit.UITextField DeviceModelTextField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField DeviceNameTextField { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -32,9 +36,14 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.EditDevice
                 CancelBarButtonItem = null;
             }
 
-            if (ModelPickerView != null) {
-                ModelPickerView.Dispose ();
-                ModelPickerView = null;
+            if (DeviceModelTextField != null) {
+                DeviceModelTextField.Dispose ();
+                DeviceModelTextField = null;
+            }
+
+            if (DeviceNameTextField != null) {
+                DeviceNameTextField.Dispose ();
+                DeviceNameTextField = null;
             }
 
             if (SaveBarButtonItem != null) {

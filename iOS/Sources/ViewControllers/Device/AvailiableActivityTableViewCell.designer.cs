@@ -7,21 +7,22 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
-namespace Isarithm.Mobile.iOS.Sources.ViewControllers.AddDevice
+namespace Isarithm.Mobile.iOS
 {
-    [Register ("AddDeviceViewController")]
-    partial class AddDeviceViewController
+    [Register ("AvailiableActivityTableViewCell")]
+    partial class AvailiableActivityTableViewCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIBarButtonItem SaveBarButtonItem { get; set; }
+        UIKit.UILabel AvailiableActivityNameLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (SaveBarButtonItem != null) {
-                SaveBarButtonItem.Dispose ();
-                SaveBarButtonItem = null;
+            if (AvailiableActivityNameLabel != null) {
+                AvailiableActivityNameLabel.Dispose ();
+                AvailiableActivityNameLabel = null;
             }
         }
     }

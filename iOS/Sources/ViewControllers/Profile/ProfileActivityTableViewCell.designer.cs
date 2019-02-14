@@ -7,11 +7,12 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
-namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Feed
+namespace Isarithm.Mobile.iOS
 {
-    [Register ("FeedViewController")]
-    partial class FeedViewController
+    [Register ("ProfileActivityTableViewCell")]
+    partial class ProfileActivityTableViewCell
     {
         void ReleaseDesignerOutlets ()
         {

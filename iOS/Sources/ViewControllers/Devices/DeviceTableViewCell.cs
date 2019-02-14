@@ -12,7 +12,6 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
 		internal void UpdateCell(Model.Device device)
 		{
 			DeviceNameLabel.Text = device.Name;
-			DeviceTypeLabel.Text = device.Type;
 		}
 	}
 }

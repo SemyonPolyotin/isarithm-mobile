@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
 {
@@ -19,7 +19,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ModelLabel { get; set; }
+        UIKit.UILabel DeviceModelLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel DeviceNameLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -28,9 +32,14 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
                 DeviceModelImageView = null;
             }
 
-            if (ModelLabel != null) {
-                ModelLabel.Dispose ();
-                ModelLabel = null;
+            if (DeviceModelLabel != null) {
+                DeviceModelLabel.Dispose ();
+                DeviceModelLabel = null;
+            }
+
+            if (DeviceNameLabel != null) {
+                DeviceNameLabel.Dispose ();
+                DeviceNameLabel = null;
             }
         }
     }
