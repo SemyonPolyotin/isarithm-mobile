@@ -73,15 +73,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\Account\AccountService.cs" />
+    <Compile Include="Client\Account\IAccountService.cs" />
+    <Compile Include="Client\Account\Model\DeviceRequest.cs" />
+    <Compile Include="Client\Account\Model\UserRequest.cs" />
+    <Compile Include="Client\Account\Model\UserResponse.cs" />
+    <Compile Include="Client\Action\ActionService.cs" />
+    <Compile Include="Client\Action\IActionService.cs" />
+    <Compile Include="Client\Action\Model\ActivityResponse.cs" />
+    <Compile Include="Client\Appliance\ApplianceService.cs" />
+    <Compile Include="Client\Appliance\IApplianceService.cs" />
+    <Compile Include="Client\Appliance\Model\ModelResponse.cs" />
+    <Compile Include="Client\Page.cs" />
     <Compile Include="Domain\Device.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
-    <Compile Include="Client\IUserClient.cs" />
-    <Compile Include="Client\Model\Page.cs" />
-    <Compile Include="Client\Model\UserRequest.cs" />
-    <Compile Include="Client\Model\UserResponse.cs" />
-    <Compile Include="Client\UserClient.cs" />
     <Compile Include="Utility\HttpClientExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
