@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Foundation;
 using Isarithm.Common.Client.Account;
+using Isarithm.Mobile.iOS.Sources.ViewControllers.Device;
 using Plugin.Settings;
 using UIKit;
 
@@ -36,17 +37,24 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
             {
                 devices.Add(new Model.Device
                 {
+                    Id = deviceResponse.Id,
                     Name = deviceResponse.Name,
-                    Type = deviceResponse.ModelId
+                    ModelId = deviceResponse.ModelId
                 });
             }
 
-            DevicesTableView.Source = new DevicesTvs(devices);
+            DevicesTableView.Source = new DevicesTvs(devices, this);
         }
 
-        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
         {
-            // TODO: Pass selected index to next view 
+            if (segue.Identifier == "ViewDeviceSegue")
+            {
+                var tvs = (DevicesTvs) DevicesTableView.Source;
+                var device = tvs.GetDevice(sender as NSIndexPath);
+                if (segue.DestinationViewController is DeviceViewController resultViewController)
+                    resultViewController.DeviceId = device.Id;
+            }
         }
     }
 }

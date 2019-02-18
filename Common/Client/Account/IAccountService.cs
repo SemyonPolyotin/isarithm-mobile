@@ -18,5 +18,6 @@ namespace Isarithm.Common.Client.Account
         Task DeleteDeviceOfUserAsync(Guid userId, int deviceId);
 
         Task<Page<DeviceResponse>> GetDevicesAsync(int page = 0, int size = 25);
+        Task<DeviceResponse> GetDeviceAsync(int deviceId);
     }
 }

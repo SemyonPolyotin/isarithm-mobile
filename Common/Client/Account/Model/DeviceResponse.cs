@@ -10,7 +10,7 @@ namespace Isarithm.Common.Client.Account.Model
         [JsonProperty("ownerId")]
         public Guid OwnerId;
         [JsonProperty("modelId")]
-        public string ModelId;
+        public Guid ModelId;
         [JsonProperty("regDate")]
         public string RegDate;
         [JsonProperty("name")]

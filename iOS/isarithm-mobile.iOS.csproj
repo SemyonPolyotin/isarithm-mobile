@@ -158,18 +158,29 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Profile.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\About.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\About.imageset\tab_about.png" />
     <ImageAsset Include="Assets.xcassets\About.imageset\tab_about%402x.png" />
     <ImageAsset Include="Assets.xcassets\About.imageset\tab_about%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Profile.imageset\robot%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Cog.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Cog.imageset\cog.png" />
-    <ImageAsset Include="Assets.xcassets\Cog.imageset\cog%40x2.png" />
-    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Image.imageset\google.jpg" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\UserMale.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\UserMale.imageset\user_male.png" />
+    <ImageAsset Include="Assets.xcassets\UserMale.imageset\user_male%402x.png" />
+    <ImageAsset Include="Assets.xcassets\UserMale.imageset\user_male%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Google.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Google.imageset\google.jpg" />
+    <ImageAsset Include="Assets.xcassets\News.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\News.imageset\news.png" />
+    <ImageAsset Include="Assets.xcassets\News.imageset\news%402x.png" />
+    <ImageAsset Include="Assets.xcassets\News.imageset\news%403x.png" />
+    <ImageAsset Include="Assets.xcassets\HealthData.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\HealthData.imageset\health_data.png" />
+    <ImageAsset Include="Assets.xcassets\HealthData.imageset\health_data%402x.png" />
+    <ImageAsset Include="Assets.xcassets\HealthData.imageset\health_data%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Maintenance.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Maintenance.imageset\maintenance.png" />
+    <ImageAsset Include="Assets.xcassets\Maintenance.imageset\maintenance%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Maintenance.imageset\maintenance%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -184,6 +195,11 @@
     <Folder Include="Sources\ViewControllers\AddActivities\" />
     <Folder Include="Sources\ViewControllers\DiscoverDevice\" />
     <Folder Include="Sources\ViewControllers\Settings\" />
+    <Folder Include="Assets.xcassets\UserMale.imageset\" />
+    <Folder Include="Assets.xcassets\Google.imageset\" />
+    <Folder Include="Assets.xcassets\News.imageset\" />
+    <Folder Include="Assets.xcassets\HealthData.imageset\" />
+    <Folder Include="Assets.xcassets\Maintenance.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
@@ -287,8 +303,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\cog.png" />
-    <BundleResource Include="Resources\cog%40x2.png" />
     <BundleResource Include="Resources\google.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

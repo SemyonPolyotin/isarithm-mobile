@@ -31,12 +31,12 @@ namespace Isarithm.Common.Client.Appliance
             var uri = new Uri($"{ApplianceUrl}/models?page={page}&size={size}");
             try
             {
-                var response = await _client.GetAsync(uri);
+                var response = await _client.GetAsync(uri).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync();
-                    var activityResponse = JsonConvert.DeserializeObject<Page<ModelResponse>>(content);
-                    return await Task.FromResult(activityResponse);
+                    var modelsResponseJson = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    var modelsResponse = JsonConvert.DeserializeObject<Page<ModelResponse>>(modelsResponseJson);
+                    return await Task.FromResult(modelsResponse).ConfigureAwait(false);
                 }
             }
             catch (Exception e)
@@ -49,15 +49,20 @@ namespace Isarithm.Common.Client.Appliance
 
         public async Task<ModelResponse> GetModelAsync(Guid modelId)
         {
-            var uri = new Uri($"{ApplianceUrl}/models/${modelId}");
-            using (var response = await _client.GetAsync(uri))
+            var uri = new Uri($"{ApplianceUrl}/models/by?id={modelId}");
+            try
             {
+                var response = await _client.GetAsync(uri).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync();
-                    var userResponse = JsonConvert.DeserializeObject<ModelResponse>(content);
-                    return userResponse;
+                    var modelResponseJson = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    var modelResponse = JsonConvert.DeserializeObject<ModelResponse>(modelResponseJson);
+                    return await Task.FromResult(modelResponse).ConfigureAwait(false);
                 }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
             }
 
             return null;

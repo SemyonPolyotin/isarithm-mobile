@@ -9,9 +9,12 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
     {
         private readonly List<Model.Device> _devices;
 
-        public DevicesTvs(List<Model.Device> devices)
+        private DevicesViewController _viewController;
+
+        public DevicesTvs(List<Model.Device> devices, DevicesViewController viewController)
         {
             _devices = devices;
+            _viewController = viewController;
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -25,6 +28,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
         public override nint RowsInSection(UITableView tableview, nint section)
         {
             return _devices.Count;
+        }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            _viewController.PerformSegue("ViewDeviceSegue", indexPath);
         }
 
         public Model.Device GetDevice(NSIndexPath indexPath)

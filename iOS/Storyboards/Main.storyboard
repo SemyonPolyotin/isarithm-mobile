@@ -262,7 +262,6 @@
                             </tableView>
                         </subviews>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="5490"/>
                     <navigationItem title="My Profile" id="6304" key="navigationItem">
                         <barButtonItem key="rightBarButtonItem" id="6305" systemItem="edit">
                             <connections>
@@ -467,7 +466,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <tabBarItem key="tabBarItem" id="6248" title="Profile" image="Profile" selectedImage="Profile"/>
+                    <tabBarItem key="tabBarItem" id="6248" title="Profile" image="UserMale" selectedImage="UserMale"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue id="6302" destination="5488" kind="relationship" relationship="rootViewController"/>
@@ -499,7 +498,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <tabBarItem key="tabBarItem" title="Devices" id="8657"/>
+                    <tabBarItem key="tabBarItem" title="Devices" id="8657" selectedImage="HealthData" image="HealthData"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue id="13317" destination="13192" kind="relationship" relationship="rootViewController"/>
@@ -694,7 +693,7 @@
                     <connections>
                         <segue destination="11436" kind="relationship" relationship="rootViewController" id="11446"/>
                     </connections>
-                    <tabBarItem key="tabBarItem" title="Settings" id="11495" image="Cog"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="11495" image="Maintenance" selectedImage="Maintenance"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11448" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -772,7 +771,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <tabBarItem key="tabBarItem" id="12622" customClass="FeedTabBarItem" title="Feed"/>
+                    <tabBarItem key="tabBarItem" id="12622" customClass="FeedTabBarItem" title="Feed" selectedImage="News" image="News"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue id="13257" destination="12443" kind="relationship" relationship="rootViewController"/>
@@ -831,7 +830,6 @@
                                 <connections>
                                     <outlet property="DeviceNameLabel" destination="13611" id="name-outlet-13611"/>
                                     <outlet property="DeviceModelLabel" destination="13614" id="name-outlet-13614"/>
-                                    <segue id="15186" destination="5901" kind="show"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -849,6 +847,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DevicesTableView" destination="13193" id="name-outlet-13193"/>
+                        <segue id="21676" destination="5901" kind="show" identifier="ViewDeviceSegue"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13198" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1042,8 +1041,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Profile" width="32" height="30"/>
-        <image name="Cog" width="50" height="50"/>
         <image name="google.jpg" width="300" height="300"/>
+        <image name="UserMale" width="30" height="30"/>
+        <image name="News" width="30" height="30"/>
+        <image name="HealthData" width="30" height="30"/>
+        <image name="Maintenance" width="30" height="30"/>
     </resources>
 </document>

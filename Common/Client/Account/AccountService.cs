@@ -241,5 +241,26 @@ namespace Isarithm.Common.Client.Account
 
             return null;
         }
+
+        public async Task<DeviceResponse> GetDeviceAsync(int deviceId)
+        {
+            var uri = new Uri($"{AccountUrl}/devices/{deviceId}");
+            try
+            {
+                var response = await _client.GetAsync(uri).ConfigureAwait(false);
+                if (response.IsSuccessStatusCode)
+                {
+                    var deviceResponseJson = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    var deviceResponse = JsonConvert.DeserializeObject<DeviceResponse>(deviceResponseJson);
+                    return await Task.FromResult(deviceResponse).ConfigureAwait(false);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return null;
+        }
     }
 }

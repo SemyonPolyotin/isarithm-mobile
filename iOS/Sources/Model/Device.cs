@@ -1,9 +1,13 @@
-﻿namespace Isarithm.Mobile.iOS.Sources.Model
-{
-	internal class Device
-	{
-		public string Type { get; set; }
+﻿using System;
 
-		public string Name { get; set; }
-	}
+namespace Isarithm.Mobile.iOS.Sources.Model
+{
+    internal class Device
+    {
+        public int Id;
+
+        public Guid ModelId;
+
+        public string Name;
+    }
 }
