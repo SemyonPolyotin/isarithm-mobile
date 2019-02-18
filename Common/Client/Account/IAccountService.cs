@@ -1,8 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Isarithm.Common.Client.Account.Model;
-using Isarithm.Common.Client.Model;
-using Isarithm.Common.Domain;
 
 namespace Isarithm.Common.Client.Account
 {
@@ -14,11 +12,11 @@ namespace Isarithm.Common.Client.Account
         Task<UserResponse> UpdateUserAsync(Guid userId, UserRequest userRequest);
         Task DeleteUserAsync(Guid userId);
 
-        Task<Page<Device>> GetDevicesOfUserAsync(Guid userId, int page = 0, int size = 25);
-        Task<Page<Device>> CreateDeviceOfUserAsync(Guid userId, DeviceRequest deviceRequest);
-        Task<Page<Device>> UpdateDeviceOfUserAsync(Guid userId, int deviceId, DeviceRequest deviceRequest);
+        Task<Page<DeviceResponse>> GetDevicesOfUserAsync(Guid userId, int page = 0, int size = 25);
+        Task<DeviceResponse> CreateDeviceOfUserAsync(Guid userId, DeviceRequest deviceRequest);
+        Task<DeviceResponse> UpdateDeviceOfUserAsync(Guid userId, int deviceId, DeviceRequest deviceRequest);
         Task DeleteDeviceOfUserAsync(Guid userId, int deviceId);
 
-        Task<Page<Device>> GetDevicesAsync(int page = 0, int size = 0);
+        Task<Page<DeviceResponse>> GetDevicesAsync(int page = 0, int size = 25);
     }
 }

@@ -1,45 +1,52 @@
 using System;
 using System.Collections.Generic;
 using Foundation;
+using Isarithm.Common.Client.Account;
+using Plugin.Settings;
 using UIKit;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
 {
-	public partial class DevicesViewController : UITableViewController
-	{
-		public DevicesViewController(IntPtr handle) : base(handle)
-		{
-		}
+    public partial class DevicesViewController : UITableViewController
+    {
+        [Action("UnwindToDevicesViewController:")]
+        public void UnwindToDevicesViewController(UIStoryboardSegue segue)
+        {
+        }
 
-		public override void ViewDidLoad()
-		{
-			base.ViewDidLoad();
+        public DevicesViewController(IntPtr handle) : base(handle)
+        {
+        }
 
-			var devices = new List<Model.Device>
-			{
-				new Model.Device
-				{
-					Name = "Name",
-					Type = "Type"
-				},
-				new Model.Device
-				{
-					Name = "3",
-					Type = "4"
-				}
-			};
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
 
-			DevicesTableView.Source = new DevicesTvs(devices);
-		}
+            var loggedInUserId = CrossSettings.Current.GetValueOrDefault("LoggedInUser_id", Guid.Empty);
+            if (loggedInUserId == Guid.Empty)
+            {
+                // TODO: Display error
+            }
 
-		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
-		{
-			// TODO: Pass selected index to next view 
-		}
+            var devicesResponse = AccountService.Current.GetDevicesOfUserAsync(loggedInUserId).Result;
 
-		[Action("UnwindToDevicesViewController:")]
-		public void UnwindToDevicesViewController(UIStoryboardSegue segue)
-		{
-		}
-	}
+            var devices = new List<Model.Device>();
+
+            foreach (var deviceResponse in devicesResponse.Content)
+            {
+                devices.Add(new Model.Device
+                {
+                    Name = deviceResponse.Name,
+                    Type = deviceResponse.ModelId
+                });
+            }
+
+            DevicesTableView.Source = new DevicesTvs(devices);
+        }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            // TODO: Pass selected index to next view 
+        }
+    }
 }

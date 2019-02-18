@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using Isarithm.Common.Client.Appliance.Model;
-using Isarithm.Common.Client.Model;
 
 namespace Isarithm.Common.Client.Appliance
 {

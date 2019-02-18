@@ -3,15 +3,15 @@ using UIKit;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
 {
-	public partial class DeviceTableViewCell : UITableViewCell
-	{
-		public DeviceTableViewCell(IntPtr handle) : base(handle)
-		{
-		}
+    public partial class DeviceTableViewCell : UITableViewCell
+    {
+        public DeviceTableViewCell(IntPtr handle) : base(handle)
+        {
+        }
 
-		internal void UpdateCell(Model.Device device)
-		{
-			DeviceNameLabel.Text = device.Name;
-		}
-	}
+        internal void UpdateCell(Model.Device device)
+        {
+            DeviceNameLabel.Text = device.Name;
+        }
+    }
 }

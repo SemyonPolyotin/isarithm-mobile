@@ -1,6 +1,7 @@
 using System;
 using Foundation;
-using Isarithm.Common.Client.Account;
+using Isarithm.Mobile.iOS.Sources.Cache;
+using Plugin.Settings;
 using UIKit;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
@@ -16,21 +17,16 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
         {
         }
 
-        private readonly IAccountService _accountService = new AccountService();
-
-        public override async void ViewDidLoad()
+        public override void ViewDidLoad()
         {
-            var user = await _accountService.GetUserAsync(Guid.Parse("550e2400-e29b-41d4-a716-446655440000"));
-            if (user == null)
-            {
-                // TODO: Show error context
-            }
-            else
-            {
-                UsernameLabel.Text = user.Username ?? UsernameLabel.Text;
-                NameLabel.Text = (user.Firstname ?? "FIRSTNAME") + " " + (user.Surname ?? "SURNAME");
-                BioTextView.Text = user.Bio;
-            }
+            var userLoaded = CrossSettings.Current.GetValueOrDefault("LoggedInUser_loaded", false);
+            if (!userLoaded) UserRepository.LoadUser();
+
+            UsernameLabel.Text = CrossSettings.Current.GetValueOrDefault("LoggedInUser_username", "ERROR");
+            BioTextView.Text = CrossSettings.Current.GetValueOrDefault("LoggedInUser_bio", "");
+            var avatar = CrossSettings.Current.GetValueOrDefault("LoggedInUser_avatar", null);
+            if (avatar != null)
+                AvatarImageView.Image = Utils.HttpUtil.LoadImage(avatar).Result;
         }
     }
 }

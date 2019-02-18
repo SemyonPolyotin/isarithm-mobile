@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Isarithm.Common.Client.Appliance.Model;
-using Isarithm.Common.Client.Model;
 using Newtonsoft.Json;
 
 namespace Isarithm.Common.Client.Appliance
@@ -14,9 +13,17 @@ namespace Isarithm.Common.Client.Appliance
 
         private const string ApplianceUrl = "http://appliance.api.isarithm.ru/";
 
-        public ApplianceService(HttpClient client)
+        private static readonly Lazy<ApplianceService> _instance =
+            new Lazy<ApplianceService>(() => new ApplianceService());
+
+        private ApplianceService()
         {
-            _client = client;
+            _client = new HttpClient();
+        }
+
+        public static ApplianceService Current
+        {
+            get { return _instance.Value; }
         }
 
         public async Task<Page<ModelResponse>> GetModelsAsync(int page = 0, int size = 25)

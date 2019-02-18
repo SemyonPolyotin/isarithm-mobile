@@ -23,10 +23,6 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel NameLabel { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITableView ProfileActivityTableView { get; set; }
 
         [Outlet]
@@ -47,11 +43,6 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Profile
             if (BioTextView != null) {
                 BioTextView.Dispose ();
                 BioTextView = null;
-            }
-
-            if (NameLabel != null) {
-                NameLabel.Dispose ();
-                NameLabel = null;
             }
 
             if (ProfileActivityTableView != null) {
