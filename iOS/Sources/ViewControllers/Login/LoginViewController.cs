@@ -2,7 +2,7 @@ using System;
 using Foundation;
 using Isarithm.Common.Client.Auth;
 using Isarithm.Common.Client.Auth.Model;
-using Isarithm.Mobile.iOS.Sources.Cache;
+using Isarithm.Mobile.iOS.Sources.Repository;
 using Plugin.Settings;
 using UIKit;
 

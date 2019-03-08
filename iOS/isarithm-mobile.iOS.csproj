@@ -126,33 +126,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Calabash">
       <HintPath>..\packages\Xamarin.TestCloud.Agent.0.21.7\lib\Xamarin.iOS\Calabash.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.BLE.Abstractions">
-      <HintPath>..\packages\Plugin.BLE.1.3.0\lib\Xamarin.iOS10\Plugin.BLE.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.BLE">
-      <HintPath>..\packages\Plugin.BLE.1.3.0\lib\Xamarin.iOS10\Plugin.BLE.dll</HintPath>
-    </Reference>
     <Reference Include="System.Reactive">
-      <HintPath>..\packages\System.Reactive.4.1.2\lib\netstandard2.0\System.Reactive.dll</HintPath>
+      <HintPath>..\packages\System.Reactive.4.1.3\lib\netstandard2.0\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +180,6 @@
     <Folder Include="Storyboards\" />
     <Folder Include="Sources\" />
     <Folder Include="Sources\ViewControllers\" />
-    <Folder Include="Sources\Services\" />
     <Folder Include="Assets.xcassets\Cog.imageset\" />
     <Folder Include="Sources\Model\" />
     <Folder Include="Sources\ViewControllers\AddActivities\" />
@@ -200,6 +190,7 @@
     <Folder Include="Assets.xcassets\News.imageset\" />
     <Folder Include="Assets.xcassets\HealthData.imageset\" />
     <Folder Include="Assets.xcassets\Maintenance.imageset\" />
+    <Folder Include="Sources\ViewControllers\ControlDevice\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
@@ -213,7 +204,6 @@
   <ItemGroup>
     <Compile Include="Sources\AppDelegate.cs" />
     <Compile Include="Sources\Repository\UserRepository.cs" />
-    <Compile Include="Sources\Utils\Settings.cs" />
     <Compile Include="Sources\Utils\HttpUtil.cs" />
     <Compile Include="Sources\Main.cs" />
     <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.cs" />
@@ -259,7 +249,6 @@
     <Compile Include="Sources\ViewControllers\Profile\ProfileViewController.designer.cs">
       <DependentUpon>../../ViewControllers/ProfileViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Services\BluetoothService.cs" />
     <Compile Include="Sources\Model\Device.cs" />
     <Compile Include="Sources\Model\FeedItem.cs" />
     <Compile Include="Sources\ViewControllers\Register\RegisterViewController.cs" />
@@ -295,15 +284,16 @@
     <Compile Include="Sources\ViewControllers\Settings\SettingsViewController.designer.cs">
       <DependentUpon>SettingsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\ControlDevice\ControlDeviceViewController.cs" />
+    <Compile Include="Sources\ViewControllers\ControlDevice\ControlDeviceViewController.designer.cs">
+      <DependentUpon>ControlDeviceViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\isarithm-mobile.Common.csproj">
       <Project>{59cbd5a8-d4b6-4154-875b-13a69aa39d9a}</Project>
       <Name>isarithm-mobile.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\google.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />

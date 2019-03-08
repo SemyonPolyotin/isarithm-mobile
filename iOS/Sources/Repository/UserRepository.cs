@@ -2,7 +2,7 @@ using System;
 using Isarithm.Common.Client.Account;
 using Plugin.Settings;
 
-namespace Isarithm.Mobile.iOS.Sources.Cache
+namespace Isarithm.Mobile.iOS.Sources.Repository
 {
     public static class UserRepository
     {

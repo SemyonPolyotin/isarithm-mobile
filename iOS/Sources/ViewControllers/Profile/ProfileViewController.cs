@@ -1,6 +1,6 @@
 using System;
 using Foundation;
-using Isarithm.Mobile.iOS.Sources.Cache;
+using Isarithm.Mobile.iOS.Sources.Repository;
 using Plugin.Settings;
 using UIKit;
 
