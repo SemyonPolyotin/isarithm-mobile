@@ -19,6 +19,10 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.AddDevice
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField NameTextField { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIBarButtonItem SaveBarButtonItem { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -26,6 +30,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.AddDevice
             if (ModelTextField != null) {
                 ModelTextField.Dispose ();
                 ModelTextField = null;
+            }
+
+            if (NameTextField != null) {
+                NameTextField.Dispose ();
+                NameTextField = null;
             }
 
             if (SaveBarButtonItem != null) {

@@ -12,18 +12,20 @@ namespace Isarithm.Common.Client.Action
     {
         private readonly HttpClient _client;
 
-        private const string AccountUrl = "http://action.api.isarithm.ru";
+        private const string ActionUrl = "http://action.api.isarithm.ru";
 
-        private static readonly Lazy<ActionService> _instance = new Lazy<ActionService>(() => new ActionService());
+        private static readonly Lazy<ActionService> Instance = new Lazy<ActionService>(() => new ActionService());
 
         private ActionService()
         {
             _client = new HttpClient();
         }
 
+        public static ActionService Current => Instance.Value;
+
         public async Task<Page<ActivityResponse>> GetActivitiesAsync(int page = 0, int size = 25)
         {
-            var uri = new Uri($"{AccountUrl}/activities?page={page}&size={size}");
+            var uri = new Uri($"{ActionUrl}/activities?page={page}&size={size}");
             try
             {
                 var response = await _client.GetAsync(uri).ConfigureAwait(false);

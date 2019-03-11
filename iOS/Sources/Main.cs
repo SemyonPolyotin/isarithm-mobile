@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Isarithm.Mobile.iOS
+namespace Isarithm.Mobile.iOS.Sources
 {
     public static class Application
     {

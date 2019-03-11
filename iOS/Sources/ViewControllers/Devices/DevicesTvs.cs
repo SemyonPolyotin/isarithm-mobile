@@ -7,11 +7,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
 {
     internal class DevicesTvs : UITableViewSource
     {
-        private readonly List<Model.Device> _devices;
+        private readonly List<Common.Domain.Device> _devices;
 
         private DevicesViewController _viewController;
 
-        public DevicesTvs(List<Model.Device> devices, DevicesViewController viewController)
+        public DevicesTvs(List<Common.Domain.Device> devices, DevicesViewController viewController)
         {
             _devices = devices;
             _viewController = viewController;
@@ -35,7 +35,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
             _viewController.PerformSegue("ViewDeviceSegue", indexPath);
         }
 
-        public Model.Device GetDevice(NSIndexPath indexPath)
+        public Common.Domain.Device GetDevice(NSIndexPath indexPath)
         {
             return _devices[indexPath.Row];
         }

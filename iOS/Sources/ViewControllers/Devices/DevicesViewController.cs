@@ -19,9 +19,9 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
         {
         }
 
-        public override void ViewDidLoad()
+        public override void ViewWillAppear(bool animated)
         {
-            base.ViewDidLoad();
+            base.ViewWillAppear(animated);
 
             var loggedInUserId = CrossSettings.Current.GetValueOrDefault("LoggedInUser_id", Guid.Empty);
             if (loggedInUserId == Guid.Empty)
@@ -31,11 +31,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
 
             var devicesResponse = AccountService.Current.GetDevicesOfUserAsync(loggedInUserId).Result;
 
-            var devices = new List<Model.Device>();
+            var devices = new List<Common.Domain.Device>();
 
             foreach (var deviceResponse in devicesResponse.Content)
             {
-                devices.Add(new Model.Device
+                devices.Add(new Common.Domain.Device
                 {
                     Id = deviceResponse.Id,
                     Name = deviceResponse.Name,

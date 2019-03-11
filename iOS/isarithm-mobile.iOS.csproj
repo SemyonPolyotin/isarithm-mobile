@@ -181,7 +181,6 @@
     <Folder Include="Sources\" />
     <Folder Include="Sources\ViewControllers\" />
     <Folder Include="Assets.xcassets\Cog.imageset\" />
-    <Folder Include="Sources\Model\" />
     <Folder Include="Sources\ViewControllers\AddActivities\" />
     <Folder Include="Sources\ViewControllers\DiscoverDevice\" />
     <Folder Include="Sources\ViewControllers\Settings\" />
@@ -206,6 +205,7 @@
     <Compile Include="Sources\Repository\UserRepository.cs" />
     <Compile Include="Sources\Utils\HttpUtil.cs" />
     <Compile Include="Sources\Main.cs" />
+    <Compile Include="Sources\ViewControllers\AddActivities\AddActivitiesTvs.cs" />
     <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.cs" />
     <Compile Include="Sources\ViewControllers\AddDevice\AddDeviceViewController.designer.cs">
       <DependentUpon>AddDeviceViewController.cs</DependentUpon>
@@ -249,8 +249,6 @@
     <Compile Include="Sources\ViewControllers\Profile\ProfileViewController.designer.cs">
       <DependentUpon>../../ViewControllers/ProfileViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Model\Device.cs" />
-    <Compile Include="Sources\Model\FeedItem.cs" />
     <Compile Include="Sources\ViewControllers\Register\RegisterViewController.cs" />
     <Compile Include="Sources\ViewControllers\Register\RegisterViewController.designer.cs">
       <DependentUpon>../../ViewControllers/RegisterViewController.cs</DependentUpon>

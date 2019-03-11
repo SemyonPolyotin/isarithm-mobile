@@ -10,7 +10,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Devices
         {
         }
 
-        internal void UpdateCell(Model.Device device)
+        internal void UpdateCell(Common.Domain.Device device)
         {
             DeviceNameLabel.Text = device.Name;
             var modelResponse = ApplianceService.Current.GetModelAsync(device.ModelId).Result;

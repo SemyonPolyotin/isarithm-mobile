@@ -17,13 +17,13 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Login
         public override void ViewDidLoad()
         {
             var loggedInUserId = CrossSettings.Current.GetValueOrDefault("LoggedInUser_id", null);
-            if (loggedInUserId != null)
-            {
-                var board = UIStoryboard.FromName("Main", null);
-                var ctrl = board.InstantiateViewController("MainTabViewController");
-                ctrl.ModalTransitionStyle = UIModalTransitionStyle.FlipHorizontal;
-                PresentViewController(ctrl, true, null);
-            }
+            if (loggedInUserId == null)
+                return;
+
+            var board = UIStoryboard.FromName("Main", null);
+            var ctrl = board.InstantiateViewController("MainTabViewController");
+            ctrl.ModalTransitionStyle = UIModalTransitionStyle.FlipHorizontal;
+            PresentViewController(ctrl, true, null);
         }
 
         public override bool ShouldPerformSegue(string segueIdentifier, NSObject sender)

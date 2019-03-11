@@ -1,5 +1,4 @@
-﻿using System;
-namespace Isarithm.Mobile.iOS.Sources.Model
+﻿namespace Isarithm.Common.Domain
 {
     public class FeedItem
     {

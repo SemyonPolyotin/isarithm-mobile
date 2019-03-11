@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Acr.Collections;
+using Foundation;
+using Isarithm.Mobile.iOS.Sources.ViewControllers.AddActivities;
 using Plugin.BluetoothLE;
 using UIKit;
 
@@ -12,6 +14,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.DiscoverDevice
     {
         private List<DiscoveredDevice> _discoveredDevices;
 
+        private IDisposable _status;
         private IDisposable _scanner;
 
         public DiscoverDeviceViewController(IntPtr handle) : base(handle)
@@ -28,7 +31,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.DiscoverDevice
             if (CrossBleAdapter.Current.CanControlAdapterState())
                 CrossBleAdapter.Current.SetAdapterState(true);
 
-            CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status =>
+            _status = CrossBleAdapter.Current.WhenStatusChanged().Subscribe(status =>
             {
                 if (status == AdapterStatus.PoweredOn)
                 {
@@ -46,8 +49,21 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.DiscoverDevice
             });
         }
 
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            base.PrepareForSegue(segue, sender);
+
+            UnloadScanner();
+        }
+
         public override void ViewDidUnload()
         {
+            UnloadScanner();
+        }
+
+        private void UnloadScanner()
+        {
+            _status.Dispose();
             _scanner.Dispose();
         }
     }

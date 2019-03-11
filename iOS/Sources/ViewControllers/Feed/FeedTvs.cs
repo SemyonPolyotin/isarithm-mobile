@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Foundation;
-using Isarithm.Mobile.iOS.Sources.Model;
+using Isarithm.Common.Domain;
 using UIKit;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Feed

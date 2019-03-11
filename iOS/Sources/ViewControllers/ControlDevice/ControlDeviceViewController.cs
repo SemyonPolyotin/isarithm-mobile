@@ -1,4 +1,5 @@
 using System;
+using System.Reactive.Linq;
 using System.Text;
 using Plugin.BluetoothLE;
 using UIKit;
@@ -83,11 +84,11 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.ControlDevice
                 return;
             }
 
-            _device.WhenAnyCharacteristicDiscovered().Subscribe(characteristic =>
+            _device.WhenAnyCharacteristicDiscovered().Subscribe(async characteristic =>
             {
                 if (characteristic.Uuid == _bleCharServoControl)
                 {
-                    characteristic.Write(Encoding.UTF8.GetBytes(command));
+                    await characteristic.Write(Encoding.UTF8.GetBytes(command));
                 }
             });
         }

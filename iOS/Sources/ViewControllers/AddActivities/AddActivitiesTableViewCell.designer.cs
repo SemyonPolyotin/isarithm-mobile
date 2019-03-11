@@ -7,9 +7,8 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
-namespace Isarithm.Mobile.iOS
+namespace Isarithm.Mobile.iOS.Sources.ViewControllers.AddActivities
 {
     [Register ("AddActivitiesTableViewCell")]
     partial class AddActivitiesTableViewCell

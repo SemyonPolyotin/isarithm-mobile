@@ -4,6 +4,7 @@ using Isarithm.Common.Client.Account;
 using Isarithm.Common.Client.Appliance;
 using Isarithm.Common.Repository;
 using Isarithm.Mobile.iOS.Sources.Utils;
+using Isarithm.Mobile.iOS.Sources.ViewControllers.EditDevice;
 using Plugin.BluetoothLE;
 using UIKit;
 
@@ -23,7 +24,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
         }
 
         private IDisposable _scanner;
-        
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -44,7 +45,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
         }
 
         /// <summary>Синхронизация активностей с устройством</summary>
-        protected void SycnronizeActivities(Guid deviceId)
+        protected void SynchronizeActivities(Guid deviceId)
         {
             // Включение адаптера 
             if (CrossBleAdapter.Current.CanControlAdapterState())
@@ -59,7 +60,6 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
                         var foundDevice = scanResult.Device;
                         if (foundDevice.Uuid == deviceId)
                         {
-                            
                             foundDevice.Connect();
                             // TODO: stop scanning
                             UploadActivity();
@@ -69,9 +69,7 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
             });
         }
 
-        /// <summary>
-        /// Загрузка активности на устройство
-        /// </summary>
+        /// <summary>Загрузка активности на устройство</summary>
         /// <returns>Результат операции</returns>
         protected bool UploadActivity()
         {
@@ -82,6 +80,15 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Device
             if (CrossBleAdapter.Current.CanControlAdapterState())
                 CrossBleAdapter.Current.SetAdapterState(true);
             return true;
+        }
+
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            if (segue.Identifier == "EditDeviceSegue")
+            {
+                if (segue.DestinationViewController is EditDeviceViewController resultViewController)
+                    resultViewController.DeviceId = DeviceId;
+            }
         }
     }
 }

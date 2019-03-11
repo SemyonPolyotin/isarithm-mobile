@@ -29,6 +29,10 @@ namespace Isarithm.Mobile.iOS.Sources.ViewControllers.EditDevice
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIBarButtonItem SaveBarButtonItem { get; set; }
 
+        [Action ("SaveBarButtonItem_Activated:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void SaveBarButtonItem_Activated (UIKit.UIBarButtonItem sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (CancelBarButtonItem != null) {

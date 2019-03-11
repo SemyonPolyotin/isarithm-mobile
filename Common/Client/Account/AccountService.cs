@@ -15,17 +15,14 @@ namespace Isarithm.Common.Client.Account
 
         private const string AccountUrl = "http://account.api.isarithm.ru";
 
-        private static readonly Lazy<AccountService> _instance = new Lazy<AccountService>(() => new AccountService());
+        private static readonly Lazy<AccountService> Instance = new Lazy<AccountService>(() => new AccountService());
 
         private AccountService()
         {
             _client = new HttpClient();
         }
 
-        public static AccountService Current
-        {
-            get { return _instance.Value; }
-        }
+        public static AccountService Current => Instance.Value;
 
         public async Task<Page<UserResponse>> GetUsersAsync(int page = 0, int size = 25)
         {
@@ -160,8 +157,8 @@ namespace Isarithm.Common.Client.Account
             var uri = new Uri($"{AccountUrl}/users/{userId}/devices");
             try
             {
-                var userJson = JsonConvert.SerializeObject(deviceRequest);
-                var content = new StringContent(userJson, Encoding.UTF8, "application/json");
+                var requestJson = JsonConvert.SerializeObject(deviceRequest);
+                var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
 
                 var response = await _client.PostAsync(uri, content).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode)
@@ -185,8 +182,8 @@ namespace Isarithm.Common.Client.Account
             var uri = new Uri($"{AccountUrl}/users/{userId}/devices/{deviceId}");
             try
             {
-                var userJson = JsonConvert.SerializeObject(deviceRequest);
-                var content = new StringContent(userJson, Encoding.UTF8, "application/json");
+                var requestJson = JsonConvert.SerializeObject(deviceRequest);
+                var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
 
                 var response = await _client.PatchAsync(uri, content).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode)

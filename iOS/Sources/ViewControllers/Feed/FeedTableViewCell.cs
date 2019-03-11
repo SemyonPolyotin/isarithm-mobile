@@ -1,5 +1,5 @@
 using System;
-using Isarithm.Mobile.iOS.Sources.Model;
+using Isarithm.Common.Domain;
 using UIKit;
 
 namespace Isarithm.Mobile.iOS.Sources.ViewControllers.Feed
